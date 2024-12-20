@@ -18,7 +18,8 @@ if not os.path.exists(OUTPUT_PATH):
 
 def download_audio(url, video_num):
     try:
-        yt = YouTube(url, use_po_token=True)
+        visitor_data = 'CgtlQmR2WnNYVE95Zyidx5a7BjIKCgJJThIEGgAgNA%3D%3D'
+        yt = YouTube(url, use_po_token=True,visitor_data=visitor_data)
         audio_stream = yt.streams.filter(only_audio=True).first()
         
         audio_file = os.path.join(OUTPUT_PATH, f"video_{video_num}_{yt.title}.mp3")
