@@ -11,10 +11,10 @@ from email.mime.application import MIMEApplication
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-OUTPUT_PATH = "downloads"
-
+OUTPUT_PATH = os.path.join('/tmp', 'downloads')
 if not os.path.exists(OUTPUT_PATH):
     os.makedirs(OUTPUT_PATH)
+
 
 def download_audio(url, video_num):
     try:
